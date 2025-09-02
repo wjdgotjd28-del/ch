@@ -1,6 +1,0 @@
-@import "tailwindcss";
-@import "react-datepicker/dist/react-datepicker.css";
-
-*{
-    font-family: "Noto Sans KR", sans-serif!important;
-}
