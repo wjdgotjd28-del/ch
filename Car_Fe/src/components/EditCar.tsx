@@ -2,7 +2,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Tooltip } fr
 import { useState } from "react";
 import CarDialogcontent from "./CarDialogContents";
 import type { Car } from "../type";
-import { updateCar } from "../api/carApis";
+import { updateCar } from "../api/carApi";
 import { IconButton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 

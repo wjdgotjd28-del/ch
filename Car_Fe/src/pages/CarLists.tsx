@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
 import type { Car } from "../type"
-import { deleteCar, getCars } from "../api/carApis";
+import { deleteCar, getCars } from "../api/carApi";
 import { DataGrid } from "@mui/x-data-grid";
 import type { GridCellParams, GridColDef } from "@mui/x-data-grid";
-import { IconButton, Snackbar, Tooltip } from "@mui/material";
+import { Button, IconButton, Snackbar, Tooltip } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddCar from "../components/AddCar";
 import EditCar from "../components/EditCar";
+import { useAuthStore } from "../store";
 
 export default function CarList() {
+    const { logout } = useAuthStore();
     const [data,setData] = useState<Car[]>([]);
     const [toastVal,setToastVal] = useState({
         open: false, msg: ''
@@ -68,15 +70,19 @@ export default function CarList() {
         
     }
 
+    const handleLogout = () => {
+        sessionStorage.setItem("jwt","")
+        logout();
+    }
+
     useEffect(() => {
         loadCarData();
     }, []);
 
     return(
         <>
-            <AddCar loadCarData={
-                loadCarData
-            }/>
+            <AddCar loadCarData={loadCarData}/>
+            <Button onClick={handleLogout}>로그아웃</Button>
             <DataGrid rows={data} columns={columns} getRowId={row => row.id} disableRowSelectionOnClick={false} showToolbar/>
             <Snackbar open={toastVal.open} onClose = {() => setToastVal({open: false, msg: ''})} message={toastVal.msg} autoHideDuration={2000} /> 
         </>

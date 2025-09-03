@@ -1,7 +1,7 @@
 
 import type { Car } from "../type";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
-import { addCar } from "../api/carApis";
+import { addCar } from "../api/carApi";
 import CarDialogcontent from "./CarDialogContents";
 import { useState } from "react";
 

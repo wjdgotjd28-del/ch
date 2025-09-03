@@ -32,11 +32,13 @@ public class JwtFilter extends OncePerRequestFilter  //한요청당 한번만
             // 2. 꺼낸 토큰에서 유저 정보 추출
             String username = jwtService.parseToken(request);
             // 3. 추출된 유저 정보로 Authentication을 만들어 SecurityContext에 set
-            Authentication authentication = new UsernamePasswordAuthenticationToken(
-                            username,
-                            null, //password는 null
-                            Collections.emptyList());
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+            if(username != null) {
+                Authentication authentication = new UsernamePasswordAuthenticationToken(
+                        username,
+                        null, //password는 null
+                        Collections.emptyList());
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            }
         }
         // 마지막에 다음 필터를 호출
         filterChain.doFilter(request,response);

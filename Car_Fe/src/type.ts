@@ -7,3 +7,8 @@ export type Car = {
     modelYear: number;           // 출시 연도
     price: number;               // 가격
 }
+
+export type User = {
+    username: string;
+    password: string;
+}
