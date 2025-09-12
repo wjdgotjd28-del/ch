@@ -24,3 +24,6 @@ public class AuthEntryPoint implements AuthenticationEntryPoint {
         out.println("인증에 실패했습니다. : " + authException.getMessage());
     }
 }
+
+
+//어떻게 차단되었는지를 사용자에게 알려주는 방식

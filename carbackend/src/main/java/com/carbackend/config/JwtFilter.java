@@ -44,3 +44,6 @@ public class JwtFilter extends OncePerRequestFilter  //한요청당 한번만
         filterChain.doFilter(request,response);
     }
 }
+
+ // JwtFilter는 토큰을 파싱해서 사용자 정보를 꺼내고, 그걸 SecurityContext에 넣어줘서 Spring Security가 인식하게 해주는 거예요.
+
