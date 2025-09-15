@@ -1,0 +1,11 @@
+# 사용자에게 제공되는 최종 환경.
+spring:
+#  profiles:
+#    active: prod
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create

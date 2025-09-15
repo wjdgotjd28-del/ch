@@ -1,0 +1,13 @@
+#개발자가 코드를 작성하고 기능을 구현하는 환경입니다.
+spring:
+#  profiles:
+#    active: dev
+  datasource:
+    url: jdbc:mariadb://localhost:3306/cardb
+    username: root
+    password: 1234
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
