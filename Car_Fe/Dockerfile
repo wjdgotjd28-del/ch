@@ -10,4 +10,4 @@ FROM nginx:stable-alpine
 COPY --from=build /app/dist /user/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
-CMD ["nginx", "-8", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
